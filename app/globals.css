@@ -24,4 +24,30 @@ body {
       rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb));
+
+  @apply bg-[radial-gradient(ellipse_at_bottom,_var(--tw-gradient-stops))] from-blue-700 via-blue-800 to-gray-900;
+}
+
+.gradient-bg {
+  background-image: linear-gradient(to top, black, transparent);
+}
+
+h1 {
+  @apply text-4xl font-bold p-2;
+}
+
+p {
+  @apply p-2;
+}
+
+ul {
+  @apply pl-4 list-disc;
+}
+
+ol {
+  @apply pl-4 list-decimal;
+}
+
+a {
+  @apply text-blue-500 underline;
 }
