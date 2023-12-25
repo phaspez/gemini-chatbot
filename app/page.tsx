@@ -30,7 +30,7 @@ export default function Home() {
   };
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between py-2 px-0">
+    <main className="flex min-h-screen flex-col items-center text-white justify-between py-2 px-0">
       <h1>Fancy chatbot lol. My ADHD brain exploded</h1>
       <p className="text-center">
         <small>
