@@ -1,13 +1,16 @@
-## I made a simple dumb dumb chatbot app using next js and google gemini.
+## Gemini Chatbot app
 
-### Notice
+### Get started
 
-this repo is missing an "api.js" file in the app folder. create it like this:
+Create an .env file in project folder, type in data similar to .env.example
+Open terminal, type
 
 ```
-const api_key = "your_api_key";
-
-export default api_key;
+    npm run dev
 ```
 
-and you're good to go!
+to view your page.
+
+### Backend
+
+Modify backend section in the pages/api folder.

@@ -36,6 +36,10 @@ h1 {
   @apply text-4xl font-bold p-2;
 }
 
+h2 {
+  @apply text-3xl font-bold p-2;
+}
+
 p {
   @apply p-2;
 }
@@ -50,4 +54,36 @@ ol {
 
 a {
   @apply text-blue-500 underline;
+}
+
+.fade-in{
+  animation: fadein 0.3s;
+}
+
+.fade-out{
+  animation: fadeout 0.3s;
+}
+
+
+
+@keyframes fadein {
+  0% {
+    transform: translateX(-25%);
+    @apply opacity-0;
+  }
+  100% {
+    transform: translateY(0);
+    @apply opacity-100;
+  }
+}
+
+@keyframes fadeout {
+  0% {
+    transform: translateX(0);
+    @apply opacity-100;
+  }
+  100% {
+    transform: translateX(-25%);
+    @apply opacity-0 delay-300;
+  }
 }
