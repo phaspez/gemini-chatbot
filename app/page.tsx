@@ -9,7 +9,9 @@ import { NavSidebar } from "./Sidebar";
 import { ThemeButtonProps } from "./GlobalInterfaces";
 import { ThemeButton } from "./ThemeButton";
 
-export let ThemeContext: Context<ThemeButtonProps>;
+export let ThemeContext = createContext<ThemeButtonProps | undefined>(
+	undefined
+);
 
 export default function Home() {
 	const [chatlog, setChatlog] = useState<ResponseData[]>([]);
@@ -23,7 +25,7 @@ export default function Home() {
 		themeState: theme,
 	};
 
-	ThemeContext = createContext<ThemeButtonProps>(context);
+	ThemeContext = createContext<ThemeButtonProps | undefined>(context);
 
 	/* useEffect(() => {
 		// save theme to local

@@ -4,8 +4,8 @@ import { useContext } from "react";
 import { ThemeContext } from "./page";
 
 export function ThemeButton() {
-	const { themeState, setThemeState } =
-		useContext<ThemeButtonProps>(ThemeContext);
+	const themeContext = useContext<ThemeButtonProps | undefined>(ThemeContext);
+	const { themeState, setThemeState } = themeContext!;
 
 	return (
 		<button
