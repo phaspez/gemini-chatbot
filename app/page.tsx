@@ -8,24 +8,11 @@ import { EmptyChatGetStarted } from "./EmptyChatGetStarted";
 import { NavSidebar } from "./Sidebar";
 import { ThemeButtonProps } from "./GlobalInterfaces";
 import { ThemeButton } from "./ThemeButton";
-
-export let ThemeContext = createContext<ThemeButtonProps | undefined>(
-	undefined
-);
+import { ThemeContextProvider } from "./ThemeContext";
 
 export default function Home() {
 	const [chatlog, setChatlog] = useState<ResponseData[]>([]);
 	const [isWaitingPrompt, setIsWaitingPrompt] = useState<boolean>(false);
-	const [theme, setTheme] = useState<string>(
-		localStorage.getItem("colormode") || ""
-	);
-
-	const context: ThemeButtonProps = {
-		setThemeState: setTheme,
-		themeState: theme,
-	};
-
-	ThemeContext = createContext<ThemeButtonProps | undefined>(context);
 
 	/* useEffect(() => {
 		// save theme to local
@@ -38,16 +25,6 @@ export default function Home() {
 			}
 		}
 	}, []); */
-
-	// get the <html> element, and or remove the dark class
-	useEffect(() => {
-		let html = document.documentElement;
-		html.classList.remove("dark");
-		html.classList.remove("light");
-
-		html.classList.add(theme);
-		localStorage.setItem("colormode", theme);
-	}, [theme]);
 
 	const addNewResponse = (
 		response: string,
@@ -69,7 +46,7 @@ export default function Home() {
 	};
 
 	return (
-		<ThemeContext.Provider value={context}>
+		<ThemeContextProvider>
 			<main className="flex min-h-screen p-0 m-0 flex-col items-center justify-between px-0 text-white dark:text-dark">
 				<div className="flex flex-grow justify-center px-0 w-5/6">
 					{chatlog.length < 1 ? (
@@ -85,6 +62,6 @@ export default function Home() {
 				</div>
 				<ThemeButton />
 			</main>
-		</ThemeContext.Provider>
+		</ThemeContextProvider>
 	);
 }

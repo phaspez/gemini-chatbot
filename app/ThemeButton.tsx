@@ -1,10 +1,10 @@
 import { FaLightbulb, FaSun } from "react-icons/fa";
 import { ThemeButtonProps } from "./GlobalInterfaces";
 import { useContext } from "react";
-import { ThemeContext } from "./page";
+import { useThemeContext } from "./ThemeContext";
 
 export function ThemeButton() {
-	const themeContext = useContext<ThemeButtonProps | undefined>(ThemeContext);
+	const themeContext = useThemeContext();
 	const { themeState, setThemeState } = themeContext!;
 
 	return (
