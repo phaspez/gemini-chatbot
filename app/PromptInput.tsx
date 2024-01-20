@@ -1,7 +1,3 @@
-"use client";
-
-//@ts-ignore
-
 import { useState, useEffect } from "react";
 import fetchAPIData from "./api/FetchAPIData";
 import fetchAPIDataVision from "./api/FetchAPIDataVision";
@@ -26,7 +22,7 @@ async function handleSendPrompt(prompt: string, imageurl: string) {
 	}
 }
 
-function PromptInput({ addNewResponse }: ChatBot) {
+export default function PromptInput({ addNewResponse }: ChatBot) {
 	const [inputValue, setInputValue] = useState<string>("");
 	const [inputImageURL, setInputImageURL] = useState<string>("");
 
@@ -51,7 +47,7 @@ function PromptInput({ addNewResponse }: ChatBot) {
 	}, [inputImageURL]);
 
 	return (
-		<div className="fixed w-screen bottom-0 py-9 pt-12 -mb-5 bg-gradient-to-t from-black to-transparent">
+		<div className="fixed w-screen bottom-0 py-9 pt-12 -mb-5 bg-gradient-to-t text-black dark:text-white from-white dark:from-black to-transparent">
 			<div className="lg:px-24 md:px-16 px-4">
 				<div className="flex gap-2 px-2">
 					<div className="self-end">
@@ -77,8 +73,9 @@ function PromptInput({ addNewResponse }: ChatBot) {
 						rows={1}
 						placeholder="Bạn muốn hỏi gì?"
 						spellCheck={true}
-						className="rounded-lg resize-none p-4 my-2 bg-gray-700 grow overflow-visible"
+						className="rounded-lg resize-none p-4 my-2 bg-gray-200 dark:bg-gray-700  grow overflow-visible"
 						onChange={(e) => {
+							e.preventDefault();
 							let newInputValue = e.target.value;
 							setInputValue(newInputValue);
 						}}
@@ -103,5 +100,3 @@ function PromptInput({ addNewResponse }: ChatBot) {
 		</div>
 	);
 }
-
-export default PromptInput;

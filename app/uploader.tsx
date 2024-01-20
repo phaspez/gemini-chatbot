@@ -9,8 +9,8 @@ export default function Uploader({
 	updater: (url: string) => void;
 }) {
 	return (
-		<div className="flex items-center justify-between">
-			<div className="rounded-md bg-gray-700 p-2 mt-2">
+		<div className="flex items-center justify-between text-black dark:text-white">
+			<div className="rounded-md bg-gray-200 dark:bg-gray-700 p-2 mt-2">
 				<UploadButton
 					endpoint="imageUploader"
 					className="ut-allowed-content:text-gray-400"

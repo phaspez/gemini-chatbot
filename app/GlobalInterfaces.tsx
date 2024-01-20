@@ -13,3 +13,8 @@ export interface ResponseData {
 	imageURL: string;
 	sender: string; //"user" | "model";
 }
+
+export interface ThemeButtonProps {
+	themeState: string;
+	setThemeState: (theme: string) => void;
+}

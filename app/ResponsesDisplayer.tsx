@@ -14,11 +14,13 @@ function ResponsesDisplayer({ responses }: ChatBot) {
 					<div
 						key={index}
 						className={
-							"w-full rounded-lg border-2 px-12 py-9 border-slate-500 bg-opacity-50 " +
-							(index % 2 != 0 ? "bg-slate-700" : "bg-black")
+							"w-full rounded-lg text-black dark:text-white border-2 md:px-8 lg:px-12 py-9 border-slate-500 bg-opacity-50 " +
+							(index % 2 != 0
+								? "dark:bg-slate-700 bg-gray-300"
+								: "dark:bg-black bg-white")
 						}
 					>
-						<div className="sticky text-4xl">
+						<div className=" pl-2 flex text-4xl">
 							{response.sender == "user" ? <FaUser /> : <RiRobot2Fill />}
 							<span className="text-sm w-11/12 px-2 text-gray-400 text-pretty">
 								{response.timestamp}
