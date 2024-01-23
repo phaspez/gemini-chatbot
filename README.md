@@ -1,16 +1,8 @@
 ## Gemini Chatbot app
 
-### Get started
+### Deploy demo
+0. Tạo một file .env, nhập các thông tin theo file hướng dẫn .env.example
+1. Chạy `npm i` để tại tất cả dependencies.
+2. Đóng, mở lại VS Code.
+3. Gõ `npm run dev`
 
-Create an .env file in project folder, type in data similar to .env.example
-Open terminal, type
-
-```
-    npm run dev
-```
-
-to view your page.
-
-### Backend
-
-Modify backend section in the pages/api folder.

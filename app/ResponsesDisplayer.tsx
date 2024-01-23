@@ -9,12 +9,12 @@ function ResponsesDisplayer({ responses }: ChatBot) {
 	console.log(responses);
 	return (
 		<div className="row w-full px-0 mx-0 pb-20">
-			<div className="py-12 px-0 mx-0 grid grid-cols-1 gap-2">
+			<div className="py-20 px-0 mx-0 grid grid-cols-1 gap-2">
 				{responses.map((response: ResponseData, index: number) => (
 					<div
 						key={index}
 						className={
-							"w-full rounded-lg text-black dark:text-white border-2 md:px-8 lg:px-12 py-9 border-slate-500 bg-opacity-50 " +
+							"w-full rounded-lg text-black dark:text-white border-2 md:px-2 lg:px-12 py-9 border-slate-500 bg-opacity-50 " +
 							(index % 2 != 0
 								? "dark:bg-slate-700 bg-gray-300"
 								: "dark:bg-black bg-white")

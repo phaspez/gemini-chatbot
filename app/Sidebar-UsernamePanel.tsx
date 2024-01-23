@@ -1,5 +1,6 @@
 import { FaRegUserCircle } from "react-icons/fa";
 import { FaGear } from "react-icons/fa6";
+import Settings from "./Settings";
 
 export function UsernamePanel({
 	avatar,
@@ -25,9 +26,7 @@ export function UsernamePanel({
 				<p>{username}</p>
 			</div>
 
-			<button className="p-2 hover:bg-slate-500 rounded-md">
-				<FaGear />
-			</button>
+			<Settings />
 		</div>
 	);
 }

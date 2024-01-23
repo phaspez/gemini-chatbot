@@ -8,6 +8,7 @@ import { FaGear, FaUser } from "react-icons/fa6";
 import { UsernamePanel } from "./Sidebar-UsernamePanel";
 import Image from "next/image";
 import i from "../public/DHCT.png";
+
 export function NavSidebar() {
 	const [showSidebar, setShowSidebar] = useState(false);
 	console.log(showSidebar);

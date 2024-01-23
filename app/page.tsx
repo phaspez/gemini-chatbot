@@ -48,7 +48,7 @@ export default function Home() {
 	return (
 		<ThemeContextProvider>
 			<main className="flex min-h-screen p-0 m-0 flex-col items-center justify-between px-0 text-white dark:text-dark">
-				<div className="flex flex-grow justify-center px-0 w-5/6">
+				<div className="flex flex-grow justify-center px-0 w-11/12 lg:w-5/6 md:w-9/12">
 					{chatlog.length < 1 ? (
 						<EmptyChatGetStarted />
 					) : (

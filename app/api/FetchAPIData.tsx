@@ -13,8 +13,8 @@ async function fetchAPIData(prompt: string) {
 	const model = genAI.getGenerativeModel({ model: "gemini-pro" });
 	const result = await model.generateContent(prompt);
 
-	const response = await result.response;
-	const text = await response.text();
+	const response = result.response;
+	const text = response.text();
 
 	return text;
 }
