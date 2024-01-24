@@ -13,6 +13,7 @@ import { ThemeContextProvider } from "./ThemeContext";
 export default function Home() {
 	const [chatlog, setChatlog] = useState<ResponseData[]>([]);
 	const [isWaitingPrompt, setIsWaitingPrompt] = useState<boolean>(false);
+	const [isLoading, setIsLoading] = useState<boolean>(false);
 
 	/* useEffect(() => {
 		// save theme to local
@@ -31,9 +32,10 @@ export default function Home() {
 		sender: string,
 		imageurl: string
 	) => {
+		setIsLoading(true);
 		let newResponse: ResponseData = {
 			dialogue: response,
-			timestamp: new Date().toString(),
+			timestamp: new Date().toLocaleString(),
 			imageURL: imageurl,
 			sender: sender,
 		};
@@ -50,7 +52,11 @@ export default function Home() {
 			<main className="flex min-h-screen p-0 m-0 flex-col items-center justify-between px-0 text-white dark:text-dark">
 				<div className="flex flex-grow justify-center px-0 w-11/12 lg:w-5/6 md:w-9/12">
 					{chatlog.length < 1 ? (
-						<EmptyChatGetStarted />
+						<EmptyChatGetStarted
+							submitPrompt={(prompt: string) =>
+								addNewResponse(prompt, "user", "")
+							}
+						/>
 					) : (
 						<ResponsesDisplayer {...chatbot}></ResponsesDisplayer>
 					)}

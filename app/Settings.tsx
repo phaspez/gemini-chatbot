@@ -11,6 +11,7 @@ import {
 import { IoMdSettings } from "react-icons/io";
 import { useThemeContext } from "./ThemeContext";
 import { FaTrashCan } from "react-icons/fa6";
+import Link from "next/link";
 //import { classNames } from "uploadthing/client";
 
 export default function Settings() {
@@ -26,9 +27,9 @@ export default function Settings() {
 				</div>
 			</Button>
 			<Modal
+				className="bg-slate-950 bg-opacity-50 backdrop-blur-sm"
 				show={openModal}
 				onClose={() => setOpenModal(false)}
-				className="bg-black"
 			>
 				<Modal.Header>Cài Đặt</Modal.Header>
 				<Modal.Body>
@@ -77,7 +78,9 @@ export default function Settings() {
 							</Button>
 						</div>
 						<div className="flex items-center">
-							<Button onClick={() => {}}>Truy cập trang admin</Button>
+							<Link href="/admin">
+								<Button onClick={() => {}}>Truy cập trang admin</Button>
+							</Link>
 							<small className="p-2">Hiện nếu user là admin</small>
 						</div>
 					</div>

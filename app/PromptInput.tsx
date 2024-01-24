@@ -5,6 +5,7 @@ import { ChatBot } from "./GlobalInterfaces";
 import Textarea from "react-textarea-autosize";
 import { IoMdSend, IoMdImage, IoMdMicrophone } from "react-icons/io";
 import Uploader from "./uploader";
+import { Spinner } from "flowbite-react";
 
 async function handleSendPrompt(prompt: string, imageurl: string) {
 	console.log("Sending prompt: " + prompt);
@@ -25,12 +26,14 @@ async function handleSendPrompt(prompt: string, imageurl: string) {
 export default function PromptInput({ addNewResponse }: ChatBot) {
 	const [inputValue, setInputValue] = useState<string>("");
 	const [inputImageURL, setInputImageURL] = useState<string>("");
+	const [isLoading, setIsLoading] = useState<boolean>(false);
 
 	const handlePrompt = async () => {
 		let response =
 			(await handleSendPrompt(inputValue, inputImageURL)) ||
 			"An error has occurred. Please try again";
 		addNewResponse(response, "model", inputImageURL);
+		setIsLoading(false);
 	};
 
 	const updateURL = (url: string) => {
@@ -81,19 +84,26 @@ export default function PromptInput({ addNewResponse }: ChatBot) {
 						}}
 					/>
 					<div className="relative text-xl flex flex-col px-2 overflow-hidden max-h-60 bg-background">
-						<button
-							className="rounded-md bg-green-700 text-white p-2 mt-2"
-							style={{ alignSelf: "flex-start" }}
-							type="submit"
-							onClick={() => {
-								addNewResponse(inputValue, "user", inputImageURL);
-								handlePrompt();
-								setInputValue("");
-								setInputImageURL("");
-							}}
-						>
-							<IoMdSend />
-						</button>
+						{isLoading ? (
+							<div className="p-2 mt-2">
+								<Spinner aria-label="Default status example" size={"lg"} />
+							</div>
+						) : (
+							<button
+								className="rounded-md bg-green-700 text-white p-2 mt-2"
+								style={{ alignSelf: "flex-start" }}
+								type="submit"
+								onClick={() => {
+									addNewResponse(inputValue, "user", inputImageURL);
+									handlePrompt();
+									setInputValue("");
+									setInputImageURL("");
+									setIsLoading(true);
+								}}
+							>
+								<IoMdSend />
+							</button>
+						)}
 					</div>
 				</div>
 			</div>
