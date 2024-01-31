@@ -13,7 +13,12 @@ export default function EmptyChatExamplePrompt({
 		<div>
 			<div className="flex items-center">
 				<p className="grow">{prompt}</p>
-				<button className="text-lg text-right p-2" onClick={() => {}}>
+				<button
+					className="text-lg text-right p-2"
+					onClick={() => {
+						handleExamplePrompt(prompt);
+					}}
+				>
 					<FaArrowRight />
 				</button>
 			</div>

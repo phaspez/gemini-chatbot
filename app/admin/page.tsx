@@ -1,6 +1,5 @@
 "use client";
 
-import { NavSidebar } from "../Sidebar";
 import { ThemeButton } from "../ThemeButton";
 import { ThemeContextProvider } from "../ThemeContext";
 import Link from "next/link";
@@ -10,7 +9,7 @@ import UploadTable from "./UploadTable";
 export default function Home() {
 	return (
 		<ThemeContextProvider>
-			<main className="flex min-h-screen p-0 m-0 flex-col items-center justify-between px-0 text-black dark:text-white">
+			<main className="flex min-h-screen py-3 m-0 flex-col items-center justify-between px-0 text-black dark:text-white">
 				<ThemeButton />
 				<div className="pt-16 w-11/12 lg:w-5/6 px-6 gap-2">
 					<h1>Admin</h1>

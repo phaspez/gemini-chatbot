@@ -17,4 +17,6 @@ export interface ResponseData {
 export interface ThemeButtonProps {
 	themeState: string;
 	setThemeState: (theme: string) => void;
+	chatSchool: string;
+	setChatSchool: (school: string) => void;
 }

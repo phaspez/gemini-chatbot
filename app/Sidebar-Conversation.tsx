@@ -1,4 +1,4 @@
-import { BsThreeDotsVertical } from "react-icons/bs";
+import { useThemeContext } from "./ThemeContext";
 
 interface SidebarButton {
 	chatName: string;
@@ -6,9 +6,13 @@ interface SidebarButton {
 }
 
 export function SideBarConversation({ chatName, onClick }: SidebarButton) {
+	const themeContext = useThemeContext();
+	const { chatSchool, setChatSchool } = themeContext!;
 	return (
 		<button
-			onClick={onClick}
+			onClick={() => {
+				setChatSchool(chatName);
+			}}
 			className="grow text-left overflow-clip p-3 border-2 rounded-md text-black dark:text-white border-gray-500 dark:hover:bg-gray-500 hover:bg-gray-300"
 		>
 			{chatName}

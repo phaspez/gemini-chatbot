@@ -1,6 +1,12 @@
 "use client";
 
-import { Button, Modal } from "flowbite-react";
+import {
+	Button,
+	Modal,
+	Label,
+	RangeSlider,
+	RangeSliderProps,
+} from "flowbite-react";
 import { useState } from "react";
 import {
 	FaLightbulb,
@@ -13,6 +19,8 @@ import { useThemeContext } from "./ThemeContext";
 import { FaTrashCan } from "react-icons/fa6";
 import Link from "next/link";
 //import { classNames } from "uploadthing/client";
+
+let x: RangeSliderProps = {};
 
 export default function Settings() {
 	const [openModal, setOpenModal] = useState(false);
@@ -48,11 +56,46 @@ export default function Settings() {
 							</Button>
 						</div>
 
-						<div className="space-y-6">
-							<p className="text-base leading-relaxed text-gray-500 dark:text-gray-400">
-								Bằng việc sử dụng dịch vụ, bạn chấp nhận bán linh hồn cho quỷ dữ
-								và thông tin đời sống cá nhân của bạn.
-							</p>
+						<div className="flex items-center">
+							<div className="flex grow">
+								<p className="flex grow">Chế độ chat</p>
+							</div>
+							<div className="flex grow text-gray-400">
+								<div className="grid w-full">
+									<div className="grid grid-cols-3">
+										<p className="text-left">
+											<small>Nhanh</small>
+										</p>
+										<p className="text-center">
+											<small>|</small>
+										</p>
+										<p className="text-right">
+											<small>Chậm</small>
+										</p>
+									</div>
+									<RangeSlider
+										id="default-range"
+										className="z z-10"
+										step={1}
+										max={3}
+										defaultValue={1}
+										min={1}
+										width={400}
+										color="white"
+									/>
+									<div className="grid grid-cols-3">
+										<p className="text-left">
+											<small>Ngắn</small>
+										</p>
+										<p className="text-center">
+											<small>|</small>
+										</p>
+										<p className="text-right">
+											<small>Dài</small>
+										</p>
+									</div>
+								</div>
+							</div>
 						</div>
 
 						<div className="flex items-center">

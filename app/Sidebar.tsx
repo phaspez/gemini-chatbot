@@ -8,10 +8,13 @@ import { FaGear, FaUser } from "react-icons/fa6";
 import { UsernamePanel } from "./Sidebar-UsernamePanel";
 import Image from "next/image";
 import i from "../public/DHCT.png";
+import { useThemeContext } from "./ThemeContext";
 
 export function NavSidebar() {
 	const [showSidebar, setShowSidebar] = useState(false);
-	console.log(showSidebar);
+	const themeContext = useThemeContext();
+	const { chatSchool, setChatSchool } = themeContext!;
+
 	return (
 		<div className="fixed text-black dark:text-white min-w-max p-2 left-0 z-30 gap-0">
 			<button
@@ -23,6 +26,11 @@ export function NavSidebar() {
 			>
 				<IoMdMenu />
 			</button>
+
+			<div className="fixed left-14 ml-5 py-3 top-0">
+				<h4>{chatSchool}</h4>
+			</div>
+
 			<nav
 				className={
 					"grid bg-white/70 dark:bg-gray-600/70 backdrop-blur-md overflow-hidden min-w-80 shadow-2xl border-2 max-w-96 p-4 rounded-lg transition-all duration-200 " +

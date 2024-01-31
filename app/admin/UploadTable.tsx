@@ -1,4 +1,4 @@
-import { Table } from "flowbite-react";
+import { Table, FileInput, Label, Button } from "flowbite-react";
 
 export default function UploadTable() {
 	return (
@@ -9,6 +9,7 @@ export default function UploadTable() {
 					<Table.HeadCell>
 						<span className="sr-only">Tải file lên</span>
 					</Table.HeadCell>
+					<Table.HeadCell></Table.HeadCell>
 				</Table.Head>
 				<Table.Body className="divide-y">
 					<Table.Row className="bg-gray-100 dark:border-gray-700 dark:bg-gray-800">
@@ -16,12 +17,15 @@ export default function UploadTable() {
 							Trường ĐHCT
 						</Table.Cell>
 						<Table.Cell>
-							<a
-								href="#"
-								className="font-medium text-cyan-600 hover:underline dark:text-cyan-500"
-							>
-								Cập nhật
-							</a>
+							<div>
+								<div className="mb-2 block">
+									<Label htmlFor="file-upload-dhct" value="Upload file" />
+								</div>
+								<FileInput id="file-upload-dhct" />
+							</div>
+						</Table.Cell>
+						<Table.Cell>
+							<Button>Huấn luyện</Button>
 						</Table.Cell>
 					</Table.Row>
 					<Table.Row className="bg-gray-100 dark:border-gray-700 dark:bg-gray-800">
@@ -29,12 +33,15 @@ export default function UploadTable() {
 							Trường CNTT&TT
 						</Table.Cell>
 						<Table.Cell>
-							<a
-								href="#"
-								className="font-medium text-cyan-600 hover:underline dark:text-cyan-500"
-							>
-								Cập nhật
-							</a>
+							<div>
+								<div className="mb-2 block">
+									<Label htmlFor="file-upload-cntt" value="Upload file" />
+								</div>
+								<FileInput id="file-upload-cntt" />
+							</div>
+						</Table.Cell>
+						<Table.Cell>
+							<Button>Huấn luyện</Button>
 						</Table.Cell>
 					</Table.Row>
 					<Table.Row className="bg-gray-100 dark:border-gray-700 dark:bg-gray-800">
@@ -42,12 +49,15 @@ export default function UploadTable() {
 							Trường Kinh Tế
 						</Table.Cell>
 						<Table.Cell>
-							<a
-								href="#"
-								className="font-medium text-cyan-600 hover:underline dark:text-cyan-500"
-							>
-								Cập nhật
-							</a>
+							<div>
+								<div className="mb-2 block">
+									<Label htmlFor="file-upload-kt" value="Upload file" />
+								</div>
+								<FileInput id="file-upload-kt" />
+							</div>
+						</Table.Cell>
+						<Table.Cell>
+							<Button>Huấn luyện</Button>
 						</Table.Cell>
 					</Table.Row>
 					<Table.Row className="bg-gray-100 dark:border-gray-700 dark:bg-gray-800">
@@ -55,12 +65,15 @@ export default function UploadTable() {
 							Trường Nông nghiệp
 						</Table.Cell>
 						<Table.Cell>
-							<a
-								href="#"
-								className="font-medium text-cyan-600 hover:underline dark:text-cyan-500"
-							>
-								Cập nhật
-							</a>
+							<div>
+								<div className="mb-2 block">
+									<Label htmlFor="file-upload-nn" value="Upload file" />
+								</div>
+								<FileInput id="file-upload-nn" />
+							</div>
+						</Table.Cell>
+						<Table.Cell>
+							<Button>Huấn luyện</Button>
 						</Table.Cell>
 					</Table.Row>
 				</Table.Body>

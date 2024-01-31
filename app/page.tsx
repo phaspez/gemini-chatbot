@@ -1,38 +1,22 @@
 "use client";
 
 import PromptInput from "./PromptInput";
-import { useState, useEffect, useContext, createContext, Context } from "react";
+import { useState } from "react";
 import ResponsesDisplayer from "./ResponsesDisplayer";
 import { ChatBot, ResponseData } from "./GlobalInterfaces";
 import { EmptyChatGetStarted } from "./EmptyChatGetStarted";
 import { NavSidebar } from "./Sidebar";
-import { ThemeButtonProps } from "./GlobalInterfaces";
 import { ThemeButton } from "./ThemeButton";
 import { ThemeContextProvider } from "./ThemeContext";
 
 export default function Home() {
 	const [chatlog, setChatlog] = useState<ResponseData[]>([]);
-	const [isWaitingPrompt, setIsWaitingPrompt] = useState<boolean>(false);
-	const [isLoading, setIsLoading] = useState<boolean>(false);
-
-	/* useEffect(() => {
-		// save theme to local
-		if (typeof window !== "undefined") {
-			let localTheme = localStorage.getItem("colormode");
-			if (!localTheme) {
-				localStorage.setItem("colormode", "dark");
-			} else {
-				setTheme(localTheme);
-			}
-		}
-	}, []); */
 
 	const addNewResponse = (
 		response: string,
 		sender: string,
 		imageurl: string
 	) => {
-		setIsLoading(true);
 		let newResponse: ResponseData = {
 			dialogue: response,
 			timestamp: new Date().toLocaleString(),

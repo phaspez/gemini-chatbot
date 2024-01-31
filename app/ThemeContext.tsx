@@ -5,6 +5,7 @@ const ThemeContext = createContext<ThemeButtonProps | undefined>(undefined);
 
 export const ThemeContextProvider = (props: any) => {
 	const [theme, setTheme] = useState<string>("");
+	const [chatSchool, setChatSchool] = useState<string>("Đại học Cần Thơ");
 	// get the <html> element, and or remove the dark class
 	useEffect(() => {
 		if (typeof window !== "undefined") {
@@ -33,6 +34,8 @@ export const ThemeContextProvider = (props: any) => {
 	const context: ThemeButtonProps = {
 		setThemeState: setTheme,
 		themeState: theme,
+		chatSchool: chatSchool,
+		setChatSchool: setChatSchool,
 	};
 
 	return (
